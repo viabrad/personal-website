@@ -1,0 +1,31 @@
+<%- include('partials/header'); -%>
+<%- include('partials/navbar'); -%>
+    <div class="main-layout">
+        <h1>toolkit</h1>
+        <p>I like to refer to this as my digital toolkit.</p>
+    </div>
+    <div class="toolkit-container">
+        <% toolkit.forEach(entry => { %>
+            <div class="main-container">
+                <div class="thecard" id="<%=entry.id%>" onClick="flipCard(<%=entry.id%>)">                
+                    <div class="square">
+                        <img src="<%= entry.logo %>" class="toolkit-icon"  alt="">                        
+                    </div>                                       
+                    <div class="square theback">
+                        <h4><%= entry.productName %></h4>
+                        <p><%= entry.uses %></p>                 
+                        <div class="btm">
+                            <a href="<%= entry.url %>" target="_blank" rel="noreferrer noopener">
+                                <i class="bi bi-arrow-right-circle-fill toolkit-icon-btn"></i>
+                            </a>
+                        </div>
+                        
+                        
+                    </div>
+                </div>                
+            </div>           
+        <% }); %>
+    </div>
+<%- include('partials/footer'); -%>
+
+

@@ -1,0 +1,26 @@
+<%- include('partials/header'); -%>
+<%- include('partials/navbar'); -%>
+    <div class="main-layout">
+        <h1>music</h1>
+        <p>Here's a compilation of my favorite albums over the years. You should try tapping one.</p>
+    </div>
+    <div class="music-layout">        
+        <div class="album-grid">
+            <ul class="album-layout">                
+                <% lineup.forEach(entry => { %>
+                    <li class="album-list">
+                        <a href="<%= entry.musicLink%>" target="_blank" rel="noreferrer noopener">
+                            <img src="<%= entry.imageSource%>" class="artwork" alt="">
+                            </a>                
+                        <p><%= entry.albumName %></p>
+                        <p><%= entry.artist %></p>
+                    </li>                
+                <% }); %>                    
+            </ul>          
+        </div>
+    </div>
+    
+ 
+<%- include('partials/footer'); -%>
+
+
