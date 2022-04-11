@@ -1,7 +1,6 @@
 const express = require('express');
 const res = require('express/lib/response');
 const app = express()
-const port = 3000
 const year = new Date().getFullYear()
 const lineup = require("./music.js")
 const toolkit = require("./toolkit.js")
@@ -28,6 +27,10 @@ app.get('/toolkit', (req, res) => {
   res.render("toolkit", {year: year, toolkit: toolkit.toolkit, title: "toolkit"})
 });
 
+let port = process.env.PORT;
+if (port == null || port=="") {
+  port = 3000
+}
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
